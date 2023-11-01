@@ -52,7 +52,7 @@ handlers = {
     "add": add_contact,
     "change": change_phone,
     "phone": show_phone,
-    "showall": show_all,
+    "show all": show_all,
 }
 
 def main():
@@ -64,8 +64,8 @@ def main():
             print("No command entered. Try again.")
             continue
 
-        command_name = command_parts[0]
-        data = command_parts[1:]
+        command_name = ' '.join(command_parts[:2]) if command_parts[0] == 'show' else command_parts[0]
+        data = command_parts[2:] if command_parts[0] == 'show' else command_parts[1:]
 
         if command_name in ["good bye", "close", "exit"]:
             print("Good bye!")
