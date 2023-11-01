@@ -36,3 +36,26 @@ def show_phone(command, *args):
 @input_error
 def show_all(command, *args):
     return "\n".join(f"{name}: {phone}" for name, phone in contacts.items())
+
+def main():
+    while True:
+        command = input("Enter command: ").strip().lower()
+        command_parts = command.split()
+        if not command_parts:
+            continue
+        command_name, *data = command_parts
+
+        if command_name == "exit":
+            print("Good bye!")
+            break
+
+        handler = globals().get(command_name)
+        if not handler:
+            print("Invalid command!")
+            continue
+
+        print(handler(command_name, *data))
+
+if __name__ == "__main__":
+    contacts = {} 
+    main()
