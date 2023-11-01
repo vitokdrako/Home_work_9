@@ -52,7 +52,7 @@ handlers = {
     "add": add_contact,
     "change": change_phone,
     "phone": show_phone,
-    "show all": show_all,
+    "showall": show_all,
 }
 
 def main():
